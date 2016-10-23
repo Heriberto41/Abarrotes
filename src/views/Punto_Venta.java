@@ -60,8 +60,6 @@ public class Punto_Venta extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel2.setText("Tienda de abarrotes");
 
         jLabel3.setText("Calle Morelos  Num : 1995 ");
@@ -176,9 +174,9 @@ public class Punto_Venta extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/Busqueda.png"))); // NOI18N
+        jButton2.setText("0990");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/save_1.png"))); // NOI18N
+        jButton3.setText("pp");
 
         jButton1.setText("Agregar");
 

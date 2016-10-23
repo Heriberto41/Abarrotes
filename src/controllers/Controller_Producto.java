@@ -135,6 +135,7 @@ void Buscarproducto(String valor){
         }  
  }
 
+
 void update (){
     boolean desbloquea = true;
     
@@ -170,23 +171,60 @@ void modifica(){
     }
 }
 
-void elimina (){
-    int fila = producto.jtbl_productos.getSelectedRow();
+void Copy (){
+    
+    int fila1 = producto.jtbl_productos.getSelectedRow();
+    String Producto = "";
+    
+    int fila2 = producto.jtbl_productos.getSelectedRow();
+    String Descripcion = "";
+    
+    int fila3 = producto.jtbl_productos.getSelectedRow();
+    String Precio_compra = "";
+    
+    int fila4 = producto.jtbl_productos.getSelectedRow();
+    String Precio_venta = "";
+    
+    int fila5 = producto.jtbl_productos.getSelectedRow();
+    String Existencia= "";
+    
+    
+    
+    try {
+      
+      PreparedStatement pst = cn.prepareStatement("INSERT INTO productos_delet(Producto,Descripcion,Precio_compra,Precio_venta,Existencia) VALUES (?,?,?,?,?)");
+           
+            pst.setString(1,Producto = producto.jtbl_productos.getValueAt(fila1, 1).toString());
+            pst.setString(2, Descripcion= producto.jtbl_productos.getValueAt(fila2, 2).toString());
+            pst.setString(3,Precio_compra = producto.jtbl_productos.getValueAt(fila3, 3).toString());
+            pst.setString(4,Precio_venta = producto.jtbl_productos.getValueAt(fila4, 4).toString());
+            pst.setString(5,Existencia = producto.jtbl_productos.getValueAt(fila5, 5).toString());
+            pst.executeUpdate(); 
+    
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(producto, "No es posible eliminar este dato");
+    }
+    
+    
+}
+
+void elimina(){
+   int fila = producto.jtbl_productos.getSelectedRow();
     String id = "";
     id = producto.jtbl_productos.getValueAt(fila, 0).toString();
     int p =JOptionPane.showConfirmDialog(null,"Estas seguro de eliminar","Eliminar",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
     if (p ==0){
     try {
       PreparedStatement pst = cn.prepareStatement("DELETE FROM Productos WHERE  Id_Producto='" + id + "'");
+      pst.executeUpdate();
         
-        pst.executeUpdate();
-        Buscarid("");
+      Buscarid("");
     
     } catch (Exception e) {
+        JOptionPane.showMessageDialog(producto, "No es posible eliminar este dato");
     }
-    }
+    }  
 }
-
     @Override
     public void actionPerformed(ActionEvent e) {
          if (e.getSource() == this.producto.jbtn_save ){
@@ -228,6 +266,7 @@ void elimina (){
         }
         
         else if (e.getSource() == this.producto.jMenueliminar){
+           Copy();
            elimina();
         }
         

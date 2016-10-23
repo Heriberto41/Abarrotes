@@ -19,6 +19,7 @@ Menu menu = new Menu();
   View_Producto view_Producto = new View_Producto();
   View_Proveedor view_Proveedor = new View_Proveedor();
   Punto_Venta punto_Venta = new Punto_Venta();
+  Productos_Restaura productos_Restaura =  new Productos_Restaura();
   
     public Controller_Menu(Menu menu) {
       this.menu = menu;
@@ -27,6 +28,7 @@ Menu menu = new Menu();
       this.menu.jbtn_productos.addActionListener(this);
       this.menu.jbtn_proveedores.addActionListener(this);
       this.menu.jbtn_punto_venta.addActionListener(this);
+      this.menu.jbtn_restarar.addActionListener(this);
     }
 
     @Override
@@ -40,6 +42,10 @@ Menu menu = new Menu();
         
         else if(e.getSource() == menu.jbtn_punto_venta ){
             Controlle_Punto_venta  controlle_Punto_venta = new Controlle_Punto_venta(punto_Venta);
+        }
+        
+        else if (e.getSource() == menu.jbtn_restarar){
+            Controller_Restaura_Producto crp =  new Controller_Restaura_Producto(productos_Restaura);
         }
     }
     

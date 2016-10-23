@@ -85,8 +85,6 @@ public class View_Proveedor extends javax.swing.JFrame {
         });
         jPopupMenu1.add(jMenueliminar);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jbtn_buscar_proveedor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jbtn_buscar_proveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/Busqueda.png"))); // NOI18N
 
