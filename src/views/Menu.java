@@ -30,7 +30,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jbtn_productos = new javax.swing.JButton();
         jbtn_proveedores = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jbtn_clientes = new javax.swing.JButton();
         jbtn_restarar = new javax.swing.JButton();
         jbtn_punto_venta = new javax.swing.JButton();
         jbtn_ajustes = new javax.swing.JButton();
@@ -55,9 +55,9 @@ public class Menu extends javax.swing.JFrame {
         jbtn_proveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/Proveedores.png"))); // NOI18N
         jbtn_proveedores.setBorder(null);
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 204));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/icono_cliente.png"))); // NOI18N
-        jButton1.setBorder(null);
+        jbtn_clientes.setBackground(new java.awt.Color(255, 204, 204));
+        jbtn_clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/icono_cliente.png"))); // NOI18N
+        jbtn_clientes.setBorder(null);
 
         jbtn_restarar.setBackground(new java.awt.Color(255, 204, 204));
         jbtn_restarar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/recycle_empty_64.png"))); // NOI18N
@@ -92,7 +92,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jbtn_restarar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(92, 92, 92)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtn_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtn_ajustes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(177, Short.MAX_VALUE))
         );
@@ -102,7 +102,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(104, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jbtn_proveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtn_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbtn_productos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -182,12 +182,12 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JButton jbtn_ajustes;
+    public javax.swing.JButton jbtn_clientes;
     public javax.swing.JButton jbtn_productos;
     public javax.swing.JButton jbtn_proveedores;
     public javax.swing.JButton jbtn_punto_venta;
