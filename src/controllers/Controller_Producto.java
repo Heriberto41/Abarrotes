@@ -30,6 +30,7 @@ public class Controller_Producto extends javax.swing.JFrame implements ActionLis
 public Controller_Producto (View_Producto producto){
     this.producto = producto;
     this.producto.setVisible(true);
+    this.producto.setTitle("Productos");
     this.producto.jtxt_id.setVisible(false);
     this.producto.jl_id.setVisible(false);
     this.producto.setLocationRelativeTo(this);
