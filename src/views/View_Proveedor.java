@@ -91,19 +91,19 @@ public class View_Proveedor extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
 
-        jl_producto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_producto.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         jl_producto.setText("Proveedor");
 
-        jl_descripcion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_descripcion.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         jl_descripcion.setText("Nombre");
 
-        jl_precio_compra.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_precio_compra.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         jl_precio_compra.setText("RFC");
 
-        jl_precio_venta.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_precio_venta.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         jl_precio_venta.setText("Calle");
 
-        jl_existencia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_existencia.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         jl_existencia.setText("Numero");
 
         jtf_proveedor.addActionListener(new java.awt.event.ActionListener() {
@@ -137,21 +137,27 @@ public class View_Proveedor extends javax.swing.JFrame {
             }
         });
 
-        jl_id.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jl_id.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         jl_id.setText("Id");
 
         jtf_id.setEditable(false);
 
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 2, 11)); // NOI18N
         jLabel1.setText("Colonia");
 
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 2, 11)); // NOI18N
         jLabel2.setText("Ciudad");
 
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 2, 11)); // NOI18N
         jLabel3.setText("Estado");
 
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 2, 11)); // NOI18N
         jLabel4.setText("Nombre de contacto");
 
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         jLabel5.setText("Telefono");
 
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         jLabel8.setText("Email");
 
         jtf_colonia.addActionListener(new java.awt.event.ActionListener() {
