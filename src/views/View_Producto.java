@@ -78,26 +78,35 @@ public class View_Producto extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
 
-        jl_producto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_producto.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jl_producto.setText("Producto");
 
-        jl_descripcion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_descripcion.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jl_descripcion.setText("Descripción ");
 
-        jl_precio_compra.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_precio_compra.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jl_precio_compra.setText("Precio compra");
 
-        jl_precio_venta.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_precio_venta.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jl_precio_venta.setText("Precio venta");
 
-        jl_existencia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_existencia.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jl_existencia.setText("Existencia");
 
+        jtx_producto.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+
+        jtxt_descripcion.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jtxt_descripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_descripcionActionPerformed(evt);
             }
         });
+
+        jtxt_precio_compra.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+
+        jtxt_precio_venta.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+
+        jtxt_existencia.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         jbtn_save.setBackground(new java.awt.Color(204, 204, 255));
         jbtn_save.setForeground(new java.awt.Color(240, 240, 240));
@@ -118,10 +127,11 @@ public class View_Producto extends javax.swing.JFrame {
             }
         });
 
-        jl_id.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jl_id.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jl_id.setText("Id");
 
         jtxt_id.setEditable(false);
+        jtxt_id.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -186,10 +196,10 @@ public class View_Producto extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel6.setText("ID");
 
-        jtxt_busca_id.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jtxt_busca_id.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jtxt_busca_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_busca_idActionPerformed(evt);
@@ -199,11 +209,12 @@ public class View_Producto extends javax.swing.JFrame {
         jbtn_buscar_id.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jbtn_buscar_id.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/Busqueda.png"))); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel7.setText("Producto");
 
-        jtxt_busca_producto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jtxt_busca_producto.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
+        jtbl_productos.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jtbl_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -271,7 +282,7 @@ public class View_Producto extends javax.swing.JFrame {
                     .addComponent(jbtn_todo))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();

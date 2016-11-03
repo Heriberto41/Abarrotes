@@ -36,7 +36,15 @@ public class Menu extends javax.swing.JFrame {
         jbtn_ajustes = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jm_Menu = new javax.swing.JMenuItem();
+        jm_Cerrar_sesion = new javax.swing.JMenuItem();
+        jm_Iniciar_sesion = new javax.swing.JMenuItem();
+        jm_registra_usuario = new javax.swing.JMenuItem();
+        jm_restauracion = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jm_acerca_de = new javax.swing.JMenuItem();
+        jm_ayuda_producto = new javax.swing.JMenu();
+        jm_ayuda_productos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,10 +121,37 @@ public class Menu extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Opciones ");
+
+        jm_Menu.setText("Menu");
+        jMenu1.add(jm_Menu);
+
+        jm_Cerrar_sesion.setText("Cerrar sesión ");
+        jMenu1.add(jm_Cerrar_sesion);
+
+        jm_Iniciar_sesion.setText("Iniciar sesion ");
+        jMenu1.add(jm_Iniciar_sesion);
+
+        jm_registra_usuario.setText("Registrar usuario");
+        jMenu1.add(jm_registra_usuario);
+
+        jm_restauracion.setText("Restauración ");
+        jMenu1.add(jm_restauracion);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Información ");
+
+        jm_acerca_de.setText("Acerca de..");
+        jMenu2.add(jm_acerca_de);
+
         jMenuBar1.add(jMenu2);
+
+        jm_ayuda_producto.setText("Ayuda");
+
+        jm_ayuda_productos.setText("Productos");
+        jm_ayuda_producto.add(jm_ayuda_productos);
+
+        jMenuBar1.add(jm_ayuda_producto);
 
         setJMenuBar(jMenuBar1);
 
@@ -192,5 +227,13 @@ public class Menu extends javax.swing.JFrame {
     public javax.swing.JButton jbtn_proveedores;
     public javax.swing.JButton jbtn_punto_venta;
     public javax.swing.JButton jbtn_restarar;
+    public javax.swing.JMenuItem jm_Cerrar_sesion;
+    public javax.swing.JMenuItem jm_Iniciar_sesion;
+    public javax.swing.JMenuItem jm_Menu;
+    public javax.swing.JMenuItem jm_acerca_de;
+    private javax.swing.JMenu jm_ayuda_producto;
+    public javax.swing.JMenuItem jm_ayuda_productos;
+    public javax.swing.JMenuItem jm_registra_usuario;
+    public javax.swing.JMenuItem jm_restauracion;
     // End of variables declaration//GEN-END:variables
 }

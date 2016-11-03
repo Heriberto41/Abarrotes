@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package Main;
-import views.Menu;
-import controllers.Controller_Menu;
+import views.View_Login;
+import controllers.Controller_Login;
+import models.Model_Login;
 /**
  *
  * @author Lenovo
@@ -17,8 +18,9 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-      Menu menu = new  Menu();
-      Controller_Menu controller_Menu =  new Controller_Menu(menu);
+     View_Login login = new  View_Login();
+     Model_Login ml = new Model_Login();
+      Controller_Login controller_Login =  new Controller_Login(login,ml);
     }
     
 }
