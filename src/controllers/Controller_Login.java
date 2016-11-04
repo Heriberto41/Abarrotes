@@ -41,7 +41,7 @@ public class Controller_Login implements ActionListener {
    else if(usuario.equals("Admin") && password.equals("123456789")){
        Controller_Menu m  = new Controller_Menu(menu);
        login.setVisible(false);
-       bloquea();
+       
    }
    
  }

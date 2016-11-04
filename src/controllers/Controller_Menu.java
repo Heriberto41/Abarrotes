@@ -21,6 +21,7 @@ public class Controller_Menu implements ActionListener {
     Punto_Venta punto_Venta = new Punto_Venta();
     Productos_Restaura productos_Restaura = new Productos_Restaura();
     View_Clientes view_Clientes = new View_Clientes();
+    Productos_Encotrados productos_Encotrados = new Productos_Encotrados();
     Image icon = new ImageIcon(getClass().getResource("/imges/logo.png")).getImage();
 
     public Controller_Menu(Menu menu) {
@@ -43,7 +44,7 @@ public class Controller_Menu implements ActionListener {
         } else if (e.getSource() == menu.jbtn_proveedores) {
             Controller_Proveedores controller_Proveedores = new Controller_Proveedores(view_Proveedor);
         } else if (e.getSource() == menu.jbtn_punto_venta) {
-            Controlle_Punto_venta controlle_Punto_venta = new Controlle_Punto_venta(punto_Venta);
+            Controlle_Punto_venta controlle_Punto_venta = new Controlle_Punto_venta(punto_Venta,productos_Encotrados);
         } else if (e.getSource() == menu.jbtn_restarar) {
             Controller_Restaura_Producto crp = new Controller_Restaura_Producto(productos_Restaura);
         } else if (e.getSource() == menu.jbtn_clientes) {
