@@ -263,12 +263,11 @@ String[] datos = new String[11];
     
     }
     void update (){
-    boolean desbloquea = true;
     
-    proveedores.jbtn_save.setEnabled(desbloquea);
+    proveedores.jbtn_save.setEnabled(true);
     proveedores.jbtn_update.setEnabled(false);
     try {
-        PreparedStatement pst = cn.prepareStatement("UPDATE Proveedores SET  Proveedor='" + proveedores.jtf_proveedor.getText() + "',Nombre='" + proveedores.jtf_nombre.getText() + "',Proveedores='" + proveedores.jtf_rfc.getText() + "',Calle='" + proveedores.jtf_calle.getText() + "',Numero='" + proveedores.jtf_numero.getText() + "',Colonia='" + proveedores.jtf_colonia.getText() + "',Estado='" + proveedores.jtf_estado.getText() + "',Nombre de contacto='" + proveedores.jtf_nombredecontacto.getText() + "',Telefono='" + proveedores.jtf_telefono.getText() + "',Email='" + proveedores.jtf_email.getText()+ "' WHERE Id_Producto='" + proveedores.jtf_id.getText() + "'");
+        PreparedStatement pst = cn.prepareStatement("UPDATE Proveedores SET  Proveedor='" + proveedores.jtf_proveedor.getText() + "',nombre='" + proveedores.jtf_nombre.getText() + "',RFC='" + proveedores.jtf_rfc.getText() + "',Calle='" + proveedores.jtf_calle.getText() + "',Numero='" + proveedores.jtf_numero.getText() + "',colonia='" + proveedores.jtf_colonia.getText() + "',Estado='" + proveedores.jtf_estado.getText() + "',Nom_Contacto='" + proveedores.jtf_nombredecontacto.getText() + "',Telefono='" + proveedores.jtf_telefono.getText() + "',Email='" + proveedores.jtf_email.getText()+ "' WHERE id_Proveedor='" + proveedores.jtf_id.getText() + "'");
        pst.executeUpdate();
         Buscarid("");
        } catch (Exception e) {
@@ -299,11 +298,10 @@ void modifica(){
         proveedores.jtf_calle.setText(proveedores.jtbl_proveedores.getValueAt(fila, 4).toString());
         proveedores.jtf_numero.setText(proveedores.jtbl_proveedores.getValueAt(fila, 5).toString());
         proveedores.jtf_colonia.setText(proveedores.jtbl_proveedores.getValueAt(fila, 6).toString());
-       
-        proveedores.jtf_estado.setText(proveedores.jtbl_proveedores.getValueAt(fila, 8).toString());
-        proveedores.jtf_nombredecontacto.setText(proveedores.jtbl_proveedores.getValueAt(fila, 9).toString());
-        proveedores.jtf_telefono.setText(proveedores.jtbl_proveedores.getValueAt(fila, 10).toString());
-        proveedores.jtf_email.setText(proveedores.jtbl_proveedores.getValueAt(fila, 11).toString());
+        proveedores.jtf_estado.setText(proveedores.jtbl_proveedores.getValueAt(fila, 7).toString());
+        proveedores.jtf_nombredecontacto.setText(proveedores.jtbl_proveedores.getValueAt(fila, 8).toString());
+        proveedores.jtf_telefono.setText(proveedores.jtbl_proveedores.getValueAt(fila, 9).toString());
+        proveedores.jtf_email.setText(proveedores.jtbl_proveedores.getValueAt(fila, 10).toString());
     } else {
         JOptionPane.showMessageDialog(null, "No seleciono fila");
     }
@@ -316,7 +314,7 @@ void elimina (){
     int p =JOptionPane.showConfirmDialog(null,"Estas seguro de eliminar","Eliminar",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
     if (p ==0){
     try {
-      PreparedStatement pst = cn.prepareStatement("DELETE FROM Productos WHERE  Id_Producto='" + id + "'");
+      PreparedStatement pst = cn.prepareStatement("DELETE FROM Proveedores WHERE  Id_Proveedor='" + id + "'");
         
         pst.executeUpdate();
         Buscarid("");
