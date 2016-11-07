@@ -63,7 +63,7 @@ void save(){
         } catch (Exception e) {
             System.out.print(e.getMessage());
         }
-        proveedores.jtf_proveedor.setText("");
+       
         proveedores.jtf_nombre.setText("");
         proveedores.jtf_rfc.setText("");
         proveedores.jtf_calle.setText("");
@@ -215,7 +215,7 @@ String[] datos = new String[11];
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.proveedores.jbtn_save ){
-           if(proveedores.jtf_proveedor.getText().equals("") || proveedores.jtf_nombre.getText().equals("")|| proveedores.jtf_rfc.getText().equals("")|| proveedores.jtf_calle.getText().equals("") || proveedores.jtf_numero.getText().equals("")|| proveedores.jtf_colonia.getText().equals("")|| proveedores.jtf_estado.getText().equals("")|| proveedores.jtf_nombredecontacto.getText().equals("")|| proveedores.jtf_telefono.getText().equals("")|| proveedores.jtf_email.getText().equals("")){
+           if(proveedores.jtf_nombre.getText().equals("")|| proveedores.jtf_rfc.getText().equals("")|| proveedores.jtf_calle.getText().equals("") || proveedores.jtf_numero.getText().equals("")|| proveedores.jtf_colonia.getText().equals("")|| proveedores.jtf_estado.getText().equals("")|| proveedores.jtf_nombredecontacto.getText().equals("")|| proveedores.jtf_telefono.getText().equals("")|| proveedores.jtf_email.getText().equals("")){
               JOptionPane.showMessageDialog(null,"Falta llenar algunos campos, por favor llenalos ");
              }
            else if (e.getSource() == this.proveedores.jbtn_save ){
@@ -267,13 +267,13 @@ String[] datos = new String[11];
     proveedores.jbtn_save.setEnabled(true);
     proveedores.jbtn_update.setEnabled(false);
     try {
-        PreparedStatement pst = cn.prepareStatement("UPDATE Proveedores SET  Proveedor='" + proveedores.jtf_proveedor.getText() + "',nombre='" + proveedores.jtf_nombre.getText() + "',RFC='" + proveedores.jtf_rfc.getText() + "',Calle='" + proveedores.jtf_calle.getText() + "',Numero='" + proveedores.jtf_numero.getText() + "',colonia='" + proveedores.jtf_colonia.getText() + "',Estado='" + proveedores.jtf_estado.getText() + "',Nom_Contacto='" + proveedores.jtf_nombredecontacto.getText() + "',Telefono='" + proveedores.jtf_telefono.getText() + "',Email='" + proveedores.jtf_email.getText()+ "' WHERE id_Proveedor='" + proveedores.jtf_id.getText() + "'");
+        PreparedStatement pst = cn.prepareStatement("UPDATE Proveedores SET  Proveedor='" + "',nombre='" + proveedores.jtf_nombre.getText() + "',RFC='" + proveedores.jtf_rfc.getText() + "',Calle='" + proveedores.jtf_calle.getText() + "',Numero='" + proveedores.jtf_numero.getText() + "',colonia='" + proveedores.jtf_colonia.getText() + "',Estado='" + proveedores.jtf_estado.getText() + "',Nom_Contacto='" + proveedores.jtf_nombredecontacto.getText() + "',Telefono='" + proveedores.jtf_telefono.getText() + "',Email='" + proveedores.jtf_email.getText()+ "' WHERE id_Proveedor='" + proveedores.jtf_id.getText() + "'");
        pst.executeUpdate();
         Buscarid("");
        } catch (Exception e) {
          System.out.print(e.getMessage());
         } 
-        proveedores.jtf_proveedor.setText("");
+        
         proveedores.jtf_nombre.setText("");
         proveedores.jtf_rfc.setText("");
         proveedores.jtf_calle.setText("");
@@ -292,16 +292,16 @@ void modifica(){
     int fila = proveedores.jtbl_proveedores.getSelectedRow();
     if (fila >= 0) {
         proveedores.jtf_id.setText(proveedores.jtbl_proveedores.getValueAt(fila, 0).toString());
-        proveedores.jtf_proveedor.setText(proveedores.jtbl_proveedores.getValueAt(fila, 1).toString());
-        proveedores.jtf_nombre.setText(proveedores.jtbl_proveedores.getValueAt(fila, 2).toString());
-        proveedores.jtf_rfc.setText(proveedores.jtbl_proveedores.getValueAt(fila, 3).toString());
-        proveedores.jtf_calle.setText(proveedores.jtbl_proveedores.getValueAt(fila, 4).toString());
-        proveedores.jtf_numero.setText(proveedores.jtbl_proveedores.getValueAt(fila, 5).toString());
-        proveedores.jtf_colonia.setText(proveedores.jtbl_proveedores.getValueAt(fila, 6).toString());
-        proveedores.jtf_estado.setText(proveedores.jtbl_proveedores.getValueAt(fila, 7).toString());
-        proveedores.jtf_nombredecontacto.setText(proveedores.jtbl_proveedores.getValueAt(fila, 8).toString());
-        proveedores.jtf_telefono.setText(proveedores.jtbl_proveedores.getValueAt(fila, 9).toString());
-        proveedores.jtf_email.setText(proveedores.jtbl_proveedores.getValueAt(fila, 10).toString());
+      
+        proveedores.jtf_nombre.setText(proveedores.jtbl_proveedores.getValueAt(fila, 1).toString());
+        proveedores.jtf_rfc.setText(proveedores.jtbl_proveedores.getValueAt(fila, 2).toString());
+        proveedores.jtf_calle.setText(proveedores.jtbl_proveedores.getValueAt(fila, 3).toString());
+        proveedores.jtf_numero.setText(proveedores.jtbl_proveedores.getValueAt(fila, 4).toString());
+        proveedores.jtf_colonia.setText(proveedores.jtbl_proveedores.getValueAt(fila, 5).toString());
+        proveedores.jtf_estado.setText(proveedores.jtbl_proveedores.getValueAt(fila, 6).toString());
+        proveedores.jtf_nombredecontacto.setText(proveedores.jtbl_proveedores.getValueAt(fila, 7).toString());
+        proveedores.jtf_telefono.setText(proveedores.jtbl_proveedores.getValueAt(fila, 8).toString());
+        proveedores.jtf_email.setText(proveedores.jtbl_proveedores.getValueAt(fila, 9).toString());
     } else {
         JOptionPane.showMessageDialog(null, "No seleciono fila");
     }
