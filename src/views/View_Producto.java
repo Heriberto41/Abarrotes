@@ -220,7 +220,7 @@ public class View_Producto extends javax.swing.JFrame {
 
             },
             new String [] {
-
+                "Codigo", "Producto", "Descripción", "Precio Compra", "Precio Venta", "Existencia"
             }
         ));
         jtbl_productos.setComponentPopupMenu(jPopupMenu1);

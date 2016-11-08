@@ -15,10 +15,10 @@ import views.Punto_Venta;
  *
  * @author Lenovo
  */
-public class controller_producto_encotrado extends javax.swing.JFrame implements ActionListener {
+public class controller_producto_encotrado implements ActionListener {
 Productos_Encotrados pe;
 Punto_Venta pv;
-public controller_producto_encotrado(Productos_Encotrados pe, Punto_Venta pv){
+public controller_producto_encotrado(Productos_Encotrados pe){
     this.pe =  pe;
     this.pe.setVisible(true);
     this.pv = pv;
@@ -33,12 +33,17 @@ void agregar(){
         modelo.addColumn("PRECIO VENTA");
         modelo.addColumn("CANTIDAD");
         this.pv.jtbl_venta.setModel(modelo);
+        
 }
     @Override
     public void actionPerformed(ActionEvent e) {
-         int fila = pe.jtbl_productos_encotrados.getSelectedRowCount();
-          if(e.getSource()== this.pe.jm_agregar){
-           JOptionPane.showInputDialog(pe, "werew");
+         
+          if(e.getSource()== pe.jm_agregar){
+              int fila = pe.jtbl_productos_encotrados.getSelectedRowCount();
+              if( fila >= 0){
+              JOptionPane.showInputDialog(pe, "werew");
+                  System.out.println("controllers");
+              }
            }
       }
     

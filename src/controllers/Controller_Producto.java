@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 import views.View_Producto;
 import libs.Conectar;
+import models.Model_Producto;
 
 /**
  *
@@ -26,14 +27,16 @@ import libs.Conectar;
 public class Controller_Producto extends javax.swing.JFrame implements ActionListener {
 
     View_Producto producto;
+    Model_Producto mp;
     Conectar cc = new Conectar();
     Connection cn = cc.conexion();
     Image icon = new ImageIcon(getClass().getResource("/imges/icono_producto.png")).getImage();
-    
-    public Controller_Producto(View_Producto producto) {
+
+    public Controller_Producto(View_Producto producto, Model_Producto mp) {
+        this.mp = mp;
         this.producto = producto;
         this.producto.setVisible(true);
-        this.producto.setTitle("Productos");
+        this.producto.setTitle(mp.getTitle());
         this.producto.setIconImage(icon);
         this.producto.jtxt_id.setVisible(false);
         this.producto.jl_id.setVisible(false);
@@ -58,85 +61,83 @@ public class Controller_Producto extends javax.swing.JFrame implements ActionLis
             pst.setString(5, producto.jtxt_existencia.getText());
             pst.executeUpdate();
             Buscarid("");
-            JOptionPane.showMessageDialog(null, "Los datos se han guardado correctamente");
+            JOptionPane.showMessageDialog(producto, mp.getMessage1());
         } catch (Exception e) {
-            System.out.print(e.getMessage());
+            JOptionPane.showMessageDialog(producto, mp.getMessage2());
         }
-        producto.jtx_producto.setText("");
-        producto.jtxt_descripcion.setText("");
-        producto.jtxt_precio_compra.setText("");
-        producto.jtxt_precio_venta.setText("");
-        producto.jtxt_existencia.setText("");
+        producto.jtx_producto.setText(mp.getDelete());
+        producto.jtxt_descripcion.setText(mp.getDelete());
+        producto.jtxt_precio_compra.setText(mp.getDelete());
+        producto.jtxt_precio_venta.setText(mp.getDelete());
+        producto.jtxt_existencia.setText(mp.getDelete());
     }
 
-    void Buscarid(String valor) {
+    void Buscarid(String value) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID");
-        modelo.addColumn("PRODUCTO");
-        modelo.addColumn("DESCRIPCION");
-        modelo.addColumn("PRECIO COMPRA");
-        modelo.addColumn("PRECIO VENTA");
-        modelo.addColumn("EXISTENCIA");
-        this.producto.jtbl_productos.setModel(modelo);
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Producto");
+        modelo.addColumn("Descripción");
+        modelo.addColumn("Precio Compra");
+        modelo.addColumn("Precio Venta");
+        modelo.addColumn("Existencia");
         String sql = "";
-        if (valor.equals("")) {
+        if (value.equals("")) {
             sql = "SELECT * FROM Productos";
         } else {
-            sql = "SELECT * FROM Productos WHERE Id_Producto='" + valor + "'";
+            sql = "SELECT * FROM Productos WHERE Id_Producto='" + value + "'";
         }
 
-        String[] datos = new String[6];
+        String[] columna = new String[6];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
-                datos[2] = rs.getString(3);
-                datos[3] = rs.getString(4);
-                datos[4] = rs.getString(5);
-                datos[5] = rs.getString(6);
-                modelo.addRow(datos);
+                columna[0] = rs.getString(1);
+                columna[1] = rs.getString(2);
+                columna[2] = rs.getString(3);
+                columna[3] = rs.getString(4);
+                columna[4] = rs.getString(5);
+                columna[5] = rs.getString(6);
+                modelo.addRow(columna);
             }
             this.producto.jtbl_productos.setModel(modelo);
         } catch (SQLException ex) {
-            Logger.getLogger(Controller_Producto.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(producto, ex);
         }
     }
 
-    void Buscarproducto(String valor) {
+    void Buscarproducto(String productos) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID");
-        modelo.addColumn("PRODUCTO");
-        modelo.addColumn("DESCRIPCION");
-        modelo.addColumn("PRECIO COMPRA");
-        modelo.addColumn("PRECIO VENTA");
-        modelo.addColumn("EXISTENCIA");
-        this.producto.jtbl_productos.setModel(modelo);
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Producto");
+        modelo.addColumn("Descripción");
+        modelo.addColumn("Precio Compra");
+        modelo.addColumn("Precio Venta");
+        modelo.addColumn("Existencia");
         String sql = "";
-        if (valor.equals("")) {
+        if (productos.equals("")) {
             sql = "SELECT * FROM Productos";
         } else {
-            sql = "SELECT * FROM Productos WHERE Producto='" + valor + "'";
+            sql = "SELECT * FROM Productos WHERE Producto='" + productos + "'";
         }
 
-        String[] datos = new String[6];
+        String[] columna = new String[6];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
-                datos[2] = rs.getString(3);
-                datos[3] = rs.getString(4);
-                datos[4] = rs.getString(5);
-                datos[5] = rs.getString(6);
-                modelo.addRow(datos);
+                columna[0] = rs.getString(1);
+                columna[1] = rs.getString(2);
+                columna[2] = rs.getString(3);
+                columna[3] = rs.getString(4);
+                columna[4] = rs.getString(5);
+                columna[5] = rs.getString(6);
+                modelo.addRow(columna);
             }
             this.producto.jtbl_productos.setModel(modelo);
         } catch (SQLException ex) {
-            Logger.getLogger(Controller_Producto.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(producto, ex);
         }
     }
 

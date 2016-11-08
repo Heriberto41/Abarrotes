@@ -129,18 +129,18 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jbtn_productos" pref="111" max="32767" attributes="0"/>
-                      <Component id="jbtn_punto_venta" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jbtn_productos" min="-2" pref="111" max="-2" attributes="0"/>
+                      <Component id="jbtn_punto_venta" min="-2" pref="121" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jbtn_proveedores" pref="115" max="32767" attributes="0"/>
                       <Component id="jbtn_restarar" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="92" pref="92" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jbtn_clientes" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
+                      <Component id="jbtn_clientes" min="-2" pref="112" max="-2" attributes="0"/>
                       <Component id="jbtn_ajustes" alignment="1" min="-2" pref="112" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="177" max="32767" attributes="0"/>
@@ -158,11 +158,11 @@
                   </Group>
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jbtn_punto_venta" pref="109" max="32767" attributes="0"/>
+                      <Component id="jbtn_restarar" max="32767" attributes="0"/>
                       <Component id="jbtn_ajustes" max="32767" attributes="0"/>
-                      <Component id="jbtn_punto_venta" pref="0" max="32767" attributes="0"/>
-                      <Component id="jbtn_restarar" pref="99" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -258,6 +258,17 @@
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jbtn_ajustes">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imges/MenuSalir.png"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
