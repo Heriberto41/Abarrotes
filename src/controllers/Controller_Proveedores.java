@@ -92,7 +92,7 @@ void save(){
         if (valor.equals("")) {
             sql = "SELECT * FROM proveedores";
         } else {
-            sql = "SELECT * FROM proveedores WHERE id_Provedor='" + valor + "'";
+            sql = "SELECT * FROM proveedores WHERE id_Proveedor='" + valor + "'";
         }
         
         String[] datos = new String[10];
@@ -121,74 +121,28 @@ void save(){
         }  
  }
  
- 
-void Buscarproducto(String valor){
-   DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID");
-        modelo.addColumn("NOMBRE");
-        modelo.addColumn("RFC");
-        modelo.addColumn("CALLE");
-        modelo.addColumn("NUMERO");
-        modelo.addColumn("COLONIA");
-        modelo.addColumn("CIUDAD");
-        modelo.addColumn("ESTADO");
-        modelo.addColumn("NOMBRE DE CONTACTO");
-        modelo.addColumn("TELEFONO");
-        modelo.addColumn("EMAIL");
-        this.proveedores.jtbl_proveedores.setModel(modelo);
-        String sql = "";
-        if (valor.equals("")) {
-            sql = "SELECT * FROM Proveedores";
-        } else {
-            sql = "SELECT * FROM Proveedores WHERE proveedor='" + valor + "'";
-        }
-
-String[] datos = new String[11];
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
-                datos[2] = rs.getString(3);
-                datos[3] = rs.getString(4);
-                datos[4] = rs.getString(5);
-                datos[5] = rs.getString(6);
-                datos[6] = rs.getString(7);
-                datos[7] = rs.getString(8);
-                datos[8] = rs.getString(9);
-                datos[9] = rs.getString(10);
-                datos[10] = rs.getString(11);
-                modelo.addRow(datos);
-            }
-            this.proveedores.jtbl_proveedores.setModel(modelo);
-        } catch (SQLException ex) {
-            Logger.getLogger(Controller_Producto.class.getName()).log(Level.SEVERE, null, ex);
-        }  
- }
 void Buscarproveedor(String valor){
    DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
-        modelo.addColumn("NOMBRE");
+        modelo.addColumn("nombre");
         modelo.addColumn("RFC");
-        modelo.addColumn("CALLE");
-        modelo.addColumn("NUMERO");
-         modelo.addColumn("COLONIA");
-        modelo.addColumn("CIUDAD");
-        modelo.addColumn("ESTADO");
-        modelo.addColumn("NUMERO DE CONTACTO");
-        modelo.addColumn("TELEFONO");
-        modelo.addColumn("EMAIL");
+        modelo.addColumn("Calle");
+        modelo.addColumn("Numero");
+        modelo.addColumn("colonia");
+        modelo.addColumn("Estado");
+        modelo.addColumn("Nom_Contacto");
+        modelo.addColumn("Telefono");
+        modelo.addColumn("Email");
         this.proveedores.jtbl_proveedores.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
             sql = "SELECT * FROM Proveedores";
         } else {
-            sql = "SELECT * FROM Proveedores WHERE Id_proveedor='" + valor + "'";
+            sql = "SELECT * FROM Proveedores WHERE nombre='" + valor + "'";
         }
 
 
-String[] datos = new String[11];
+String[] datos = new String[10];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -204,7 +158,7 @@ String[] datos = new String[11];
                 datos[7] = rs.getString(8);
                 datos[8] = rs.getString(9);
                 datos[9] = rs.getString(10);
-                datos[10] = rs.getString(11);
+                
                 modelo.addRow(datos);
             }
             this.proveedores.jtbl_proveedores.setModel(modelo);
@@ -238,7 +192,7 @@ String[] datos = new String[11];
               JOptionPane.showMessageDialog(null,"Ingresa datos");
              }
              else {
-               Buscarproducto(proveedores.jtf_buscaproveedor.getText()); 
+               Buscarproveedor(proveedores.jtf_buscaproveedor.getText()); 
                proveedores.jtf_buscaproveedor.setText("");
              }
         }
@@ -267,7 +221,16 @@ String[] datos = new String[11];
     proveedores.jbtn_save.setEnabled(true);
     proveedores.jbtn_update.setEnabled(false);
     try {
-        PreparedStatement pst = cn.prepareStatement("UPDATE Proveedores SET nombre='" + proveedores.jtf_nombre.getText() + "',RFC='" + proveedores.jtf_rfc.getText() + "',Calle='" + proveedores.jtf_calle.getText() + "',Numero='" + proveedores.jtf_numero.getText() + "',colonia='" + proveedores.jtf_colonia.getText() + "',Estado='" + proveedores.jtf_estado.getText() + "',Nom_Contacto='" + proveedores.jtf_nombredecontacto.getText() + "',Telefono='" + proveedores.jtf_telefono.getText() + "',Email='" + proveedores.jtf_email.getText()+ "' WHERE id_Proveedor='" + proveedores.jtf_id.getText() + "'");
+        PreparedStatement pst = cn.prepareStatement("UPDATE Proveedores SET nombre='" + proveedores.jtf_nombre.getText() 
+                + "',RFC='" + proveedores.jtf_rfc.getText() 
+                + "',Calle='" + proveedores.jtf_calle.getText() 
+                + "',Numero='" + proveedores.jtf_numero.getText() 
+                + "',colonia='" + proveedores.jtf_colonia.getText() 
+                + "',Estado='" + proveedores.jtf_estado.getText() 
+                + "',Nom_Contacto='" + proveedores.jtf_nombredecontacto.getText() 
+                + "',Telefono='" + proveedores.jtf_telefono.getText() 
+                + "',Email='" + proveedores.jtf_email.getText()
+                + "' WHERE id_Proveedor='" + proveedores.jtf_id.getText() + "'");
        pst.executeUpdate();
         Buscarid("");
        } catch (Exception e) {
