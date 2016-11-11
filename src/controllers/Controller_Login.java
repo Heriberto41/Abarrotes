@@ -38,7 +38,7 @@ public class Controller_Login implements ActionListener {
    if(usuario.equals("") ||  password.equals("")){
        JOptionPane.showMessageDialog(null,ml.getNo_Existe());
    }
-   if(usuario.equals("Admin") && password.equals("123456789")){
+   if(usuario.equals("") && password.equals("")){
        Controller_Menu m  = new Controller_Menu(menu);
        login.setVisible(false);
        

@@ -19,5 +19,14 @@ public class Model_PV {
     public void setIva(double Iva) {
         this.Iva = Iva;
     }
+    
+    public String Ivapro = "16%";
+    public  String getIvapro() {
+        return Ivapro;
+    }
+
+    public void setIvapro(String Ivapro) {
+        this.Ivapro = Ivapro;
+    }
  
 }

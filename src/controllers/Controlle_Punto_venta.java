@@ -40,7 +40,7 @@ public class Controlle_Punto_venta implements ActionListener{
      this.punto_Venta.jtxt_id.setVisible(false);
      this.productos_Encotrados =  productos_Encotrados;
      this.punto_Venta.setVisible(true);
-     this.punto_Venta.jtxt_iva.setText(""+model_PV.getIva());
+     this.punto_Venta.jtxt_iva.setText(""+model_PV.getIvapro());
      this.punto_Venta.setLocationRelativeTo(null);
      this.punto_Venta.jbtn_agregar.addActionListener(this);
      this.productos_Encotrados.jm_agregar.addActionListener(this);
