@@ -15,82 +15,84 @@ import views.View_Clientes;
 import libs.Conectar;
 
 public class Controller_Clientes extends javax.swing.JFrame implements ActionListener{
- View_Clientes cliente;
- Conectar cc = new Conectar();
- Connection cn = cc.conexion();
+ View_Clientes cliente; Conectar cc = new Conectar();Connection cn = cc.conexion();
  
 public Controller_Clientes (View_Clientes Clientes){
     this.cliente = Clientes;
-    this.cliente.setVisible(true);
-    this.cliente.jtxt_id.setVisible(false);
-    this.cliente.jl_id.setVisible(false);
-    this.cliente.setLocationRelativeTo(this);
-    this.cliente.jbtn_buscar_id.addActionListener(this);
-    this.cliente.jbtn_buscar_cliente.addActionListener(this);
-    this.cliente.jbtn_save.addActionListener(this);
-    this.cliente.jbtn_update.addActionListener(this);
-    this.cliente.jMenueliminar.addActionListener(this);
-    this.cliente.jMenumodificar.addActionListener(this);
-    this.cliente.jbtn_todo.addActionListener(this);
+    inicio();
  } 
  
 void save(){
    try {
-       PreparedStatement pst = cn.prepareStatement("INSERT INTO  (Cliente,nombre,Apellido_Paterno,Apellido_Materno,Telefono,e_Mail,RFC,Calle,No.,Colonia,Ciudad,Estado) VALUES (?,?,?,?,?)");
-            pst.setString(1, cliente.jtx_nom.getText());
+       
+       PreparedStatement pst = cn.prepareStatement("INSERT INTO cliente (Nombre,Ap_Paterno,Ap_Materno,Telefono,Email,RFC,Calle,Numero,Colonia,Ciudad,Estado) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+            pst.setString(1, cliente.jtx_nom.getText()); 
             pst.setString(2, cliente.jtx_ap_pa.getText());
-            pst.setString(3, cliente.jtx_ap_ma.getText());
-            pst.setString(4, cliente.jtxt_email.getText());
-            pst.setString(5, cliente.jtxt_rfc.getText());
-            pst.setString(6, cliente.jtxt_calle.getText());
-            pst.setString(7, cliente.jtxt_no.getText());
-            pst.setString(8, cliente.jtxt_col.getText());
-            pst.setString(9, cliente.jtxt_ciu.getText());
-            pst.setString(10, cliente.jtxt_edo.getText());
+            pst.setString(3, cliente.jtx_ap_ma.getText()); 
+            pst.setString(4, cliente.jtx_tel.getText()); 
+            pst.setString(5, cliente.jtxt_email.getText());
+            pst.setString(6, cliente.jtxt_rfc.getText());
+            pst.setString(7, cliente.jtxt_calle.getText()); 
+            pst.setString(8, cliente.jtxt_no.getText());
+            pst.setString(9, cliente.jtxt_col.getText());
+            pst.setString(10, cliente.jtxt_ciu.getText()); 
+            pst.setString(11, cliente.jtxt_edo.getText()); 
             pst.executeUpdate();
         } catch (Exception e) {
             System.out.print(e.getMessage());
         }
-        cliente.jtx_nom.setText("");
-        cliente.jtx_ap_ma.setText("");
-        cliente.jtx_tel.setText("");
-        cliente.jtxt_email.setText("");
-        cliente.jtxt_rfc.setText("");
+      cliente.jtx_nom.setText(""); 
+      cliente.jtx_ap_pa.setText(""); 
+      cliente.jtx_ap_ma.setText(""); 
+      cliente.jtx_tel.setText(""); 
+      cliente.jtxt_email.setText(""); 
+      cliente.jtxt_rfc.setText("");
+      cliente.jtxt_calle.setText(""); 
+      cliente.jtxt_no.setText("");
+      cliente.jtxt_col.setText("");
+      cliente.jtxt_ciu.setText(""); 
+      cliente.jtxt_edo.setText(""); 
     }
  
 void Buscarid(String valor){
    DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID");
-        modelo.addColumn("NOMBRE");
+        modelo.addColumn("ID"); 
+        modelo.addColumn("NOMBRE"); 
         modelo.addColumn("APELLIDO PATERNO");
-        modelo.addColumn("APELLIDO MATERNO");
-        modelo.addColumn("TELEFONO");
-        modelo.addColumn("E-MAIL");
-        modelo.addColumn("RFC");
-        modelo.addColumn("CALLE");
-        modelo.addColumn("NO");
+        modelo.addColumn("APELLIDO MATERNO"); 
+        modelo.addColumn("TELEFONO"); 
+        modelo.addColumn("E-MAIL"); 
+        modelo.addColumn("RFC"); 
+        modelo.addColumn("CALLE"); 
+        modelo.addColumn("NO"); 
         modelo.addColumn("COLONIA");
-        modelo.addColumn("CIUDAD");
+        modelo.addColumn("CIUDAD"); 
         modelo.addColumn("ESTADO");
         this.cliente.jtbl_clientes.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
             sql = "SELECT * FROM Cliente";
         } else {
-            sql = "SELECT * FROM Clientes WHERE Id_Cliente='" + valor + "'";
+            sql = "SELECT * FROM Cliente WHERE Id_Cliente='" + valor + "'";
         }
 
-        String[] datos = new String[6];
+        String[] datos = new String[12];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
-                datos[2] = rs.getString(3);
-                datos[3] = rs.getString(4);
-                datos[4] = rs.getString(5);
+                datos[0] = rs.getString(1); 
+                datos[1] = rs.getString(2); 
+                datos[2] = rs.getString(3); 
+                datos[3] = rs.getString(4); 
+                datos[4] = rs.getString(5); 
                 datos[5] = rs.getString(6);
+                datos[6] = rs.getString(7); 
+                datos[7] = rs.getString(8); 
+                datos[8] = rs.getString(9); 
+                datos[9] = rs.getString(10); 
+                datos[10] = rs.getString(11); 
+                datos[11] = rs.getString(12);
                 modelo.addRow(datos);
             }
             this.cliente.jtbl_clientes.setModel(modelo);
@@ -99,39 +101,45 @@ void Buscarid(String valor){
         }  
  }
 
-void Buscarproducto(String valor){
+void Buscarcliente(String valor){
    DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID");
-        modelo.addColumn("NOMBRE");
-        modelo.addColumn("APELLIDO PATERNO");
-        modelo.addColumn("APELLIDO MATERNO");
-        modelo.addColumn("TELEFONO");
-        modelo.addColumn("E-MAIL");
-        modelo.addColumn("RFC");
-        modelo.addColumn("CALLE");
-        modelo.addColumn("NO");
-        modelo.addColumn("COLONIA");
-        modelo.addColumn("CIUDAD");
+        modelo.addColumn("ID"); 
+        modelo.addColumn("NOMBRE"); 
+        modelo.addColumn("APELLIDO PATERNO"); 
+        modelo.addColumn("APELLIDO MATERNO"); 
+        modelo.addColumn("TELEFONO"); 
+        modelo.addColumn("E-MAIL"); 
+        modelo.addColumn("RFC"); 
+        modelo.addColumn("CALLE"); 
+        modelo.addColumn("NO"); 
+        modelo.addColumn("COLONIA"); 
+        modelo.addColumn("CIUDAD"); 
         modelo.addColumn("ESTADO");
         this.cliente.jtbl_clientes.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT * FROM Clientes";
+            sql = "SELECT * FROM Cliente";
         } else {
-            sql = "SELECT * FROM Clientes WHERE Cliente='" + valor + "'";
+            sql = "SELECT * FROM Cliente WHERE Nombre='" + valor + "'";
         }
 
-        String[] datos = new String[6];
+        String[] datos = new String[12];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
-                datos[2] = rs.getString(3);
-                datos[3] = rs.getString(4);
-                datos[4] = rs.getString(5);
+                datos[0] = rs.getString(1); 
+                datos[1] = rs.getString(2); 
+                datos[2] = rs.getString(3); 
+                datos[3] = rs.getString(4); 
+                datos[4] = rs.getString(5); 
                 datos[5] = rs.getString(6);
+                datos[6] = rs.getString(7); 
+                datos[7] = rs.getString(8); 
+                datos[8] = rs.getString(9); 
+                datos[9] = rs.getString(10); 
+                datos[10] = rs.getString(11); 
+                datos[11] = rs.getString(12);
                 modelo.addRow(datos);
             }
             this.cliente.jtbl_clientes.setModel(modelo);
@@ -141,12 +149,11 @@ void Buscarproducto(String valor){
  }
 
 void update (){
-    boolean desbloquea = true;
-    
-    cliente.jbtn_save.setEnabled(desbloquea);
+  
+    cliente.jbtn_save.setEnabled(true);
     cliente.jbtn_update.setEnabled(false);
     try {
-       PreparedStatement pst = cn.prepareStatement("UPDATE Clientes SET  Cliente='" + cliente.jtx_nom.getText() + "',Nombre='" + cliente.jtx_ap_pa.getText() + "',Apellido Paterno='" + cliente.jtx_ap_pa.getText() + "',Apellido Materno='" + cliente.jtx_tel.getText() + "',Telefono='" + cliente.jtxt_email.getText()  +  "' WHERE Id_Producto='" + cliente.jtxt_id.getText() + "'");
+       PreparedStatement pst = cn.prepareStatement("UPDATE Cliente SET  Nombre='" + cliente.jtx_nom.getText() + "',Ap_Paterno='" + cliente.jtx_ap_pa.getText() + "',Ap_Materno='" + cliente.jtx_ap_ma.getText() + "',Telefono='" + cliente.jtx_tel.getText() + "',Email='" + cliente.jtxt_email.getText()  + "',RFC='" + cliente.jtxt_rfc.getText() + "',Calle='" + cliente.jtxt_calle.getText() + "',Numero='" + cliente.jtxt_no.getText() + "',Colonia='" + cliente.jtxt_col.getText() + "',Ciudad='" + cliente.jtxt_ciu.getText() + "',Estado='" + cliente.jtxt_edo.getText() + "' WHERE Id_Cliente='" + cliente.jtxt_id.getText() + "'");
        pst.executeUpdate();
         Buscarid("");
        } catch (Exception e) {
@@ -154,24 +161,36 @@ void update (){
         } 
         cliente.jtx_nom.setText("");
         cliente.jtx_ap_ma.setText("");
+        cliente.jtx_ap_pa.setText("");
         cliente.jtx_tel.setText("");
-        cliente.jtxt_email.setText("");
+        cliente.jtxt_email.setText(""); 
         cliente.jtxt_rfc.setText("");
+        cliente.jtxt_calle.setText(""); 
+        cliente.jtxt_no.setText("");
+        cliente.jtxt_col.setText("");
+        cliente.jtxt_ciu.setText(""); 
+        cliente.jtxt_edo.setText(""); 
 }
 
 void modifica(){
-    boolean bloquea = false;
-    cliente.jbtn_save.setEnabled(bloquea);
+    cliente.jbtn_save.setEnabled(false);
+    cliente.jbtn_update.setEnabled(true);
     int fila = cliente.jtbl_clientes.getSelectedRow();
     if (fila >= 0) {
-        cliente.jtxt_id.setText(cliente.jtbl_clientes.getValueAt(fila, 0).toString());
+        cliente.jtxt_id.setText(cliente.jtbl_clientes.getValueAt(fila, 0).toString()); 
         cliente.jtx_nom.setText(cliente.jtbl_clientes.getValueAt(fila, 1).toString());
         cliente.jtx_ap_ma.setText(cliente.jtbl_clientes.getValueAt(fila, 2).toString());
-        cliente.jtx_tel.setText(cliente.jtbl_clientes.getValueAt(fila, 3).toString());
-        cliente.jtxt_email.setText(cliente.jtbl_clientes.getValueAt(fila, 4).toString());
-        cliente.jtxt_rfc.setText(cliente.jtbl_clientes.getValueAt(fila, 5).toString());
+        cliente.jtx_ap_pa.setText(cliente.jtbl_clientes.getValueAt(fila, 3).toString());
+        cliente.jtx_tel.setText(cliente.jtbl_clientes.getValueAt(fila, 4).toString()); 
+        cliente.jtxt_email.setText(cliente.jtbl_clientes.getValueAt(fila, 5).toString());
+        cliente.jtxt_rfc.setText(cliente.jtbl_clientes.getValueAt(fila, 6).toString());
+        cliente.jtxt_calle.setText(cliente.jtbl_clientes.getValueAt(fila, 7).toString()); 
+        cliente.jtxt_no.setText(cliente.jtbl_clientes.getValueAt(fila, 8).toString());
+        cliente.jtxt_col.setText(cliente.jtbl_clientes.getValueAt(fila, 9).toString());
+        cliente.jtxt_ciu.setText(cliente.jtbl_clientes.getValueAt(fila, 10).toString()); 
+        cliente.jtxt_edo.setText(cliente.jtbl_clientes.getValueAt(fila, 11).toString()); 
     } else {
-        JOptionPane.showMessageDialog(null, "no seleciono fila");
+        JOptionPane.showMessageDialog(null, "Seleccionar la fila por favor");
     }
 }
 
@@ -179,8 +198,8 @@ void elimina (){
     int fila = cliente.jtbl_clientes.getSelectedRow();
     String id = "";
     id = cliente.jtbl_clientes.getValueAt(fila, 0).toString();
-    int p =JOptionPane.showConfirmDialog(null,"Estas seguro de eliminar","Eliminar",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
-    if (p ==0){
+    int c =JOptionPane.showConfirmDialog(null,"¿Desea eliminar?","Eliminar",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
+    if (c ==0){
     try {
       PreparedStatement pst = cn.prepareStatement("DELETE FROM Cliente WHERE  Id_Cliente='" + id + "'");
         
@@ -200,7 +219,7 @@ void elimina (){
         
         else if (e.getSource() == this.cliente.jbtn_buscar_id){
              if(cliente.jtxt_busca_id.getText().equals("")){
-              JOptionPane.showMessageDialog(null,"Ingresa datos");
+              JOptionPane.showMessageDialog(null,"Ingresar datos");
              }
              else {
                Buscarid(cliente.jtxt_busca_id.getText()); 
@@ -210,10 +229,10 @@ void elimina (){
         
         else if (e.getSource() == this.cliente.jbtn_buscar_cliente){
              if(cliente.jtxt_busca_cliente.getText().equals("")){
-              JOptionPane.showMessageDialog(null,"Ingresa datos");
+              JOptionPane.showMessageDialog(null,"Ingresar datos");
              }
              else {
-               Buscarproducto(cliente.jtxt_busca_cliente.getText()); 
+               Buscarcliente(cliente.jtxt_busca_cliente.getText()); 
                cliente.jtxt_busca_cliente.setText("");
              }
         }
@@ -236,6 +255,17 @@ void elimina (){
         
             
      }
-
+public void inicio (){ 
+    this.cliente.setVisible(true);
+    this.cliente.jtxt_id.setVisible(false);
+    this.cliente.jl_id.setVisible(false);
+    this.cliente.setLocationRelativeTo(this);this.cliente.jbtn_buscar_id.addActionListener(this);
+    this.cliente.jbtn_buscar_cliente.addActionListener(this);
+    this.cliente.jbtn_save.addActionListener(this);
+    this.cliente.jbtn_update.addActionListener(this);
+    this.cliente.jMenueliminar.addActionListener(this);
+    this.cliente.jMenumodificar.addActionListener(this);
+    this.cliente.jbtn_todo.addActionListener(this);
+}
 
 }
